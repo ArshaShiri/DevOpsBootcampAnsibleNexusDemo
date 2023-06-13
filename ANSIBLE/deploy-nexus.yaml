@@ -16,3 +16,10 @@
       ansible.builtin.get_url: 
         url: https://download.sonatype.com/nexus/3/latest-unix.tar.gz
         dest: /opt/
+    - name: Untar nexus installer
+      ansible.builtin.unarchive:
+        # Name of the downloaded file on the server which is located at /opt/
+        src: /opt/nexus-3.55.0-01-unix.tar.gz
+        dest: /opt/
+        remote_src: yes  
+
