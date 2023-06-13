@@ -23,4 +23,15 @@
         src: "{{download_result.dest}}"
         dest: /opt/
         remote_src: yes
+    - name: Find nexus folder
+      ansible.builtin.find:
+        paths: /opt
+        pattern: "nexus-*"
+        file_type: directory
+      register: find_result
+      # rename the folder to nexus
+    - name: Rename nexus folder
+      # We can print the find_result again to see how to access the value we want here.
+      ansible.builtin.shell: mv {{find_result.files[0].path}} /opt/nexus
+
 
