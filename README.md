@@ -3,3 +3,5 @@
 
 Another droplet is created for this project:
 ![image](https://github.com/ArshaShiri/DevOpsBootcampAnsibleNexusDemo/assets/18715119/cb9e6927-1c1f-477f-8550-e10d3ba1e5ed)
+
+Refer to the commit history for project steps.
