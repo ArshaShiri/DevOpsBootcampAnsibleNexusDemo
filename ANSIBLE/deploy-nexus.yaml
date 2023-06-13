@@ -29,9 +29,13 @@
         pattern: "nexus-*"
         file_type: directory
       register: find_result
+    - name: Check nexus folder stats
+      ansible.builtin.stat:
+        path: /opt/nexus
+      register: stat_result
       # rename the folder to nexus
     - name: Rename nexus folder
       # We can print the find_result again to see how to access the value we want here.
       ansible.builtin.shell: mv {{find_result.files[0].path}} /opt/nexus
-
-
+      # Avoid re-execution of above shell command if the nexus folder already exists
+      when: not stat_result.stat.exists
